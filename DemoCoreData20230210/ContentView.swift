@@ -73,7 +73,10 @@ struct ContentView: View {
                 .alert(vm.noteTitle, isPresented: $vm.showAlert, actions: {
                     TextField("Title", text: $vm.noteTitle)
                     TextField("Body", text: $vm.noteBody)
-                    Button("Save", action: { vm.createNote() })
+                    Button("Save", action: {
+                        vm.createNote()
+                        vm.clearStates()
+                    })
                     Button("Cancel", role: .cancel, action: { vm.clearStates() })
                 }) {
                     Text("Create a new note")
